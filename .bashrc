@@ -33,6 +33,8 @@ alias la='ls -A'
 alias l='ls -lah'
 alias lt='ls -ltrh'
 
+alias update='sudo apt update && sudo apt upgrade -y'
+
 # Extract most common archives with one command
 extract() {
 	if [ -f "$1" ]; then
