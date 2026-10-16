@@ -4,14 +4,32 @@ case $- in
 *) return ;;
 esac
 
+# XDG base directory
+export XDG_BIN_HOME="$HOME/.local/bin"
+
+# PATH setup
+case ":$PATH:" in
+*":$XDG_BIN_HOME:"*) ;;
+*) export PATH="$XDG_BIN_HOME:$PATH" ;;
+esac
+
+# Default editor and pager
+export EDITOR=vim
+export VISUAL=$EDITOR
+export PAGER=less
+export MANPAGER=$PAGER
+export GPG_TTY="$(tty 2>/dev/null)"
+
 # History
 HISTSIZE=5000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND" # save history after every command
+
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s dirspell
+
+PROMPT_COMMAND="history -a"
 
 # ls Colors
 test -r ~/.dir_colors && eval "$(dircolors -b ~/.dir_colors)"
