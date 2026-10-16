@@ -38,19 +38,17 @@ test -r ~/.dir_colors && eval "$(dircolors -b ~/.dir_colors)"
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
 alias ls='ls --color=auto -p'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -lah'
 alias lt='ls -ltrh'
-
+alias path='echo -e ${PATH//:/\\n}'
 alias update='sudo apt update && sudo apt upgrade -y'
 
 # Extract most common archives with one command
